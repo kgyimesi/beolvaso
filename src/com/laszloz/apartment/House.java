@@ -16,7 +16,6 @@ public class House {
 	private int ID;
 	
 	@OneToOne()
-	@Column(name = "manager")
 	private Manager manager;
 
 	@OneToMany
