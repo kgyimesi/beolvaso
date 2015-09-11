@@ -2,12 +2,26 @@ package com.laszloz.apartment;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+@Entity
 public class House {
 
+	@Id
+	@Column(name = "id")
 	private int ID;
+	
+	@OneToOne()
+	@Column(name = "manager")
 	private Manager manager;
 
+	@OneToMany
+	private List<Apartment> apartmentList = new ArrayList<Apartment>();
+	
 	public Manager getManager() {
 		return manager;
 	}
@@ -15,8 +29,6 @@ public class House {
 	public void setManager(Manager manager) {
 		this.manager = manager;
 	}
-
-	private List<Apartment> apartmentList = new ArrayList<Apartment>();
 
 	public void addAppartment(Apartment apartment) {
 		apartmentList.add(apartment);

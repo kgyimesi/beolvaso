@@ -3,9 +3,19 @@ package com.laszloz.apartment;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Account {
 
+	@Id
+	@Column(name="id")
 	private int ID;
+	
+	@OneToMany
 	private List<Document> documents = new ArrayList<Document>();
 
 	public void addDocument(Document document) {
