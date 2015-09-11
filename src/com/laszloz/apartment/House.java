@@ -6,6 +6,16 @@ import java.util.List;
 public class House {
 
 	private int ID;
+	private Manager manager;
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+
 	private List<Apartment> apartmentList = new ArrayList<Apartment>();
 
 	public void addAppartment(Apartment apartment) {
@@ -17,7 +27,6 @@ public class House {
 			if (id == apartment.getID())
 				return apartment;
 		}
-		
 		return null;
 	}
 
